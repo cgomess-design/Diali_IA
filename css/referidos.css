@@ -1,0 +1,82 @@
+/* css/referidos.css - Estilos para el Módulo de Referidos y Entrega de Dinero / Bonos */
+
+/* Badges de Estado del Bono */
+.badge-bono-pendiente {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    padding: 0.35rem 0.65rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-bono-reclamado {
+    background-color: rgba(74, 222, 128, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.4);
+    padding: 0.35rem 0.65rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-bono-aplicado {
+    background-color: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 0.35rem 0.65rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Tarjetas de Plan de Afiliación */
+.bonus-amount-badge {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #0c121e;
+    border: 1px solid #28374f;
+}
+
+.bonus-basic {
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.bonus-haute {
+    color: #ff5722;
+    border-color: rgba(255, 87, 34, 0.3);
+}
+
+/* Comprobante de Egreso (Voucher de Pago en Efectivo) */
+.egreso-receipt-card {
+    background-color: #0b121e;
+    border: 2px dashed #2e3e56;
+    border-radius: 1rem;
+    padding: 1.75rem;
+    position: relative;
+}
+
+.egreso-receipt-header {
+    border-bottom: 1px solid #1e2d42;
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.egreso-receipt-body {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.egreso-signature-line {
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #334155;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}

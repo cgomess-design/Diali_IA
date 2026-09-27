@@ -1,0 +1,37 @@
+/* css/inventario.css - Estilos para Inventario de Equipos y Certificados de Calidad */
+
+/* Badges de Estado Operativo */
+.badge-operativo-activo {
+    background-color: #052e16 !important;
+    color: #86efac !important;
+    border: 1px solid #22c55e !important;
+}
+
+.badge-operativo-mantenimiento {
+    background-color: #451a03 !important;
+    color: #fde68a !important;
+    border: 1px solid #f59e0b !important;
+}
+
+.badge-operativo-baja {
+    background-color: #450a0a !important;
+    color: #fca5a5 !important;
+    border: 1px solid #ef4444 !important;
+}
+
+/* Badges de Certificado de Calidad 100% */
+.badge-cert-100 {
+    background-color: rgba(56, 189, 248, 0.15) !important;
+    color: #38bdf8 !important;
+    border: 1px solid #0ea5e9 !important;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Badge de Categoría */
+.badge-categoria {
+    background-color: #1e293b !important;
+    color: #cbd5e1 !important;
+    border: 1px solid #475569 !important;
+    font-size: 0.75rem;
+}

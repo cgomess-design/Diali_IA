@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diali IA - Sistema Inteligente Multimodal</title>
+  <!-- Bootstrap 5 estándar -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Estilos propios sencillos -->
+  <link rel="stylesheet" href="css/diali-theme.css">
+</head>
+<body>
+
+  <!-- ==============================================
+       PANTALLA DE LOGIN (PROTOTIPO)
+       ============================================== -->
+  <div id="pantalla-login" class="d-flex align-items-center justify-content-center min-vh-100 bg-light p-3">
+    <div class="card shadow-sm border" style="max-width: 380px; width: 100%;">
+      <div class="card-body p-4">
+        <div class="text-center mb-4">
+          <h3 class="fw-bold mb-1">★ Diali IA</h3>
+          <p class="text-muted small mb-0">Sistema Inteligente Multimodal Corporativo</p>
+        </div>
+
+        <form onsubmit="iniciarSesion(event)">
+          <div class="mb-3">
+            <label class="form-label small fw-bold text-muted">Correo electrónico</label>
+            <input type="email" class="form-control" placeholder="usuario@diali.ia" value="celeste.gomez@diali.ia">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label small fw-bold text-muted">Contraseña</label>
+            <input type="password" class="form-control" placeholder="••••••••" value="12345678">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label small fw-bold text-muted">Rol de usuario</label>
+            <select class="form-select small">
+              <option selected>Analista de Sistemas / Operaciones</option>
+              <option>Administrador</option>
+              <option>Auditor de Calidad</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 mt-2">
+            Iniciar Sesión
+          </button>
+        </form>
+
+        <div class="text-center mt-3 pt-3 border-top">
+          <small class="text-muted">Plataforma Corporativa Diali IA</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       CONTENEDOR PRINCIPAL DEL SISTEMA
+       ============================================== -->
+  <div id="pantalla-sistema" class="d-none">
+    <div class="container-fluid">
+      <div class="row">
+        
+        <!-- Menú lateral (Sidebar) -->
+        <div class="col-md-2 sidebar">
+          <h4 class="mb-1 text-white">★ Diali IA</h4>
+          <p class="text-secondary small mb-4">Asistencia Corporativa</p>
+
+          <ul class="nav flex-column mb-4">
+            <li class="nav-item">
+              <a class="nav-link active" onclick="mostrarSeccion('dashboard')">📊 Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="mostrarSeccion('asistente')">💬 Asistente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="mostrarSeccion('documentos')">📑 Documentos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="mostrarSeccion('analitica')">📈 Analítica</a>
+            </li>
+          </ul>
+
+          <div class="border-top border-secondary pt-3 mt-auto">
+            <p class="small text-white mb-0"><strong>Celeste Gómez</strong></p>
+            <p class="small text-secondary mb-2">Analista de Operaciones</p>
+            <button class="btn btn-outline-secondary btn-sm text-white w-100" onclick="cerrarSesion()">
+              🔒 Cerrar Sesión
+            </button>
+          </div>
+        </div>
+
+      <!-- Contenido Principal -->
+      <div class="col-md-10 p-4">
+
+        <!-- Encabezado simple -->
+        <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+          <div>
+            <h2 id="titulo-seccion" class="h4 mb-1">Panel Operativo</h2>
+            <p id="subtitulo-seccion" class="text-muted small mb-0">Métricas en tiempo real de Diali IA</p>
+          </div>
+          <div>
+            <span class="badge bg-light text-secondary border">Prototipo Interactivo</span>
+          </div>
+        </div>
+
+        <!-- ==============================================
+             1. SECCIÓN: DASHBOARD (PANEL OPERATIVO)
+             ============================================== -->
+        <div id="seccion-dashboard">
+          <!-- 4 Tarjetas de Métricas -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <span class="text-muted small fw-bold">TASA RESOLUCIÓN RAG</span>
+                  <h3 class="my-2" id="kpi-rag">80%</h3>
+                  <small class="text-muted">Consultas sin alucinación</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <span class="text-muted small fw-bold">DOCUMENTOS PROCESADOS</span>
+                  <h3 class="my-2" id="kpi-docs">1,420</h3>
+                  <small class="text-muted">Facturas y contratos (OCR)</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <span class="text-muted small fw-bold">CLIENTES EN RIESGO ALTO</span>
+                  <h3 class="my-2 text-danger" id="kpi-riesgo">3</h3>
+                  <small class="text-muted">Probables de fuga</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <span class="text-muted small fw-bold">DISPONIBILIDAD SLA</span>
+                  <h3 class="my-2 text-success" id="kpi-sla">99.9%</h3>
+                  <small class="text-muted">Tiempo activo</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dos columnas: Alertas y Prescripciones -->
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-white fw-bold">
+                  Alertas activas
+                </div>
+                <div class="card-body">
+                  <div class="alert alert-danger mb-2">
+                    <div class="d-flex justify-content-between">
+                      <strong>Textiles Guatemala S.A.</strong>
+                      <span class="badge bg-danger">Riesgo 85.5%</span>
+                    </div>
+                    <p class="small mb-2 mt-1">Riesgo de fuga alto (85.5%). Se recomienda contacto proactivo con oferta de retención.</p>
+                    <button class="btn btn-sm btn-primary" onclick="abrirPrescripcion('CLI-02')">Plan Retención</button>
+                  </div>
+
+                  <div class="alert alert-danger mb-2">
+                    <div class="d-flex justify-content-between">
+                      <strong>Farmacéutica del Valle</strong>
+                      <span class="badge bg-danger">Riesgo 95.0%</span>
+                    </div>
+                    <p class="small mb-2 mt-1">Riesgo de fuga alto (95%). Inactividad prolongada mayor a 8 meses.</p>
+                    <button class="btn btn-sm btn-primary" onclick="abrirPrescripcion('CLI-01')">Plan Retención</button>
+                  </div>
+
+                  <div class="alert alert-warning mb-0">
+                    <div class="d-flex justify-content-between">
+                      <strong>Comercial San Rafael</strong>
+                      <span class="badge bg-warning text-dark">Riesgo 78.2%</span>
+                    </div>
+                    <p class="small mb-2 mt-1">Riesgo de fuga alto (78.2%). Se recomienda revisar cotizaciones pendientes.</p>
+                    <button class="btn btn-sm btn-outline-dark" onclick="abrirPrescripcion('CLI-03')">Diagnosticar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-white fw-bold">
+                  Prescripciones comerciales
+                </div>
+                <div class="card-body">
+                  <div class="border rounded p-3 mb-2">
+                    <strong>Oferta Textiles Guatemala</strong>
+                    <p class="small text-muted mb-2">Aplicar descuento del 12% en próximas órdenes y 45 días de crédito.</p>
+                    <button class="btn btn-sm btn-success" onclick="alert('Oferta enviada al CRM')">Aplicar en CRM</button>
+                  </div>
+
+                  <div class="border rounded p-3 mb-2">
+                    <strong>Reunión Farmacéutica del Valle</strong>
+                    <p class="small text-muted mb-2">Agendar llamada urgente con el Gerente de Compras y renegociar contrato.</p>
+                    <button class="btn btn-sm btn-success" onclick="alert('Reunión agendada')">Agendar Reunión</button>
+                  </div>
+
+                  <div class="border rounded p-3">
+                    <strong>Fidelización Distribuidora El Faro</strong>
+                    <p class="small text-muted mb-2">Enviar catálogo de suministros con precio preferencial por cliente platino.</p>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="alert('Catálogo enviado')">Enviar Propuesta</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================
+             2. SECCIÓN: ASISTENTE DIALI IA (CHATBOT - RF-01)
+             ============================================== -->
+        <div id="seccion-asistente" class="d-none">
+          <div class="card">
+            <div class="card-header bg-white">
+              <h5 class="mb-0">Asistente Diali IA</h5>
+              <small class="text-muted">Conversación asistida por base de conocimiento (RAG)</small>
+            </div>
+            <div class="card-body">
+              
+              <!-- Ventana del chat -->
+              <div class="chat-window" id="caja-mensajes">
+                <div class="msg-bot">
+                  <strong>Diali IA:</strong><br>
+                  Hola, soy Diali IA. Puedo responder tus consultas operativas usando la base de conocimiento corporativa. ¿En qué puedo ayudarte?
+                </div>
+              </div>
+
+              <!-- Preguntas rápidas -->
+              <div class="mb-3">
+                <span class="small text-muted me-2">Preguntas de ejemplo:</span>
+                <button class="btn btn-sm btn-outline-secondary me-1 mb-1" onclick="preguntar('¿Cuáles son las políticas de crédito corporativas?')">Políticas de crédito</button>
+                <button class="btn btn-sm btn-outline-secondary me-1 mb-1" onclick="preguntar('¿Qué clientes tienen riesgo de fuga alto?')">Clientes en riesgo</button>
+                <button class="btn btn-sm btn-outline-secondary me-1 mb-1" onclick="preguntar('¿Cuál es el resumen de la factura F-9041?')">Factura F-9041</button>
+                <button class="btn btn-sm btn-outline-secondary mb-1" onclick="preguntar('¿Cuáles son las penalizaciones de contratos?')">Penalizaciones</button>
+              </div>
+
+              <!-- Entrada de texto -->
+              <div class="input-group">
+                <input type="text" id="campo-chat" class="form-control" placeholder="Escribe tu consulta..." onkeypress="teclaEnter(event)">
+                <button class="btn btn-outline-secondary" type="button" id="btn-mic" onclick="alternarMicrofono()" title="Hablar por micrófono">🎤</button>
+                <button class="btn btn-primary" type="button" onclick="enviarMensaje()">Enviar</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================
+             3. SECCIÓN: DOCUMENTOS Y RPA (RF-02, RF-03)
+             ============================================== -->
+        <div id="seccion-documentos" class="d-none">
+          <div class="card mb-4">
+            <div class="card-header bg-white">
+              <h5 class="mb-0">Documentos</h5>
+              <small class="text-muted">Extracción inteligente y sincronización con ERP/CRM</small>
+            </div>
+            <div class="card-body">
+
+              <!-- Subida de archivo -->
+              <div class="upload-box" onclick="document.getElementById('input-file').click()">
+                <input type="file" id="input-file" class="d-none" onchange="archivoCargado(this)">
+                <div style="font-size: 32px;">📄</div>
+                <h6 class="mt-2">Sube una factura, contrato o reporte</h6>
+                <p class="text-muted small mb-2">PDF, PNG o JPG</p>
+                <div class="mt-2">
+                  <button type="button" class="btn btn-sm btn-light border me-1" onclick="cargarEjemplo(event, 'factura_9041')">Ejemplo Factura</button>
+                  <button type="button" class="btn btn-sm btn-light border me-1" onclick="cargarEjemplo(event, 'contrato_farmaceutica')">Ejemplo Contrato</button>
+                  <button type="button" class="btn btn-sm btn-light border" onclick="cargarEjemplo(event, 'reporte_q2')">Ejemplo Reporte</button>
+                </div>
+              </div>
+
+              <!-- Resultado del OCR -->
+              <div id="caja-ocr" class="border rounded p-3 mb-4 d-none">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h6 id="ocr-titulo" class="mb-0">Extracción de datos (OCR)</h6>
+                  <span class="badge bg-success" id="ocr-confianza">98.7% Confianza</span>
+                </div>
+
+                <div id="ocr-barra-progreso" class="progress mb-3" style="height: 15px;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%">Leyendo documento...</div>
+                </div>
+
+                <div id="ocr-datos" class="d-none">
+                  <div class="row g-2 mb-3">
+                    <div class="col-md-3">
+                      <label class="small text-muted fw-bold">TIPO</label>
+                      <div id="d-tipo">-</div>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="small text-muted fw-bold">FOLIO</label>
+                      <div id="d-folio">-</div>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="small text-muted fw-bold">FECHA</label>
+                      <div id="d-fecha">-</div>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="small text-muted fw-bold">MONTO TOTAL</label>
+                      <div id="d-total" class="text-success fw-bold fs-5">-</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="small text-muted fw-bold">EMISOR</label>
+                      <div id="d-emisor">-</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="small text-muted fw-bold">RECEPTOR</label>
+                      <div id="d-receptor">-</div>
+                    </div>
+                    <div class="col-12">
+                      <label class="small text-muted fw-bold">CLÁUSULA O NOTA</label>
+                      <div id="d-clausula" class="p-2 bg-light rounded small">-</div>
+                    </div>
+                    <div class="col-12">
+                      <label class="small text-muted fw-bold">PRIVACIDAD Y ANONIMIZACIÓN</label>
+                      <div id="d-pii" class="small text-primary">-</div>
+                    </div>
+                  </div>
+
+                  <div class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary me-2" onclick="verJson()">Ver JSON API</button>
+                    <button class="btn btn-sm btn-primary" onclick="sincronizarERP()">Sincronizar con ERP (SAP) y CRM</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Historial de Documentos -->
+              <h6 class="mt-4 mb-2">Historial de documentos procesados</h6>
+              <table class="table table-bordered table-sm small">
+                <thead class="table-light">
+                  <tr>
+                    <th>Folio</th>
+                    <th>Archivo</th>
+                    <th>Tipo</th>
+                    <th>Fecha</th>
+                    <th>Monto</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-historial">
+                  <tr>
+                    <td><strong>F-9040</strong></td>
+                    <td>Factura_Materiales_Andes.pdf</td>
+                    <td>Factura</td>
+                    <td>2026-09-18</td>
+                    <td>Q 14,200.00</td>
+                    <td><span class="badge bg-success">Sincronizado SAP</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>CTR-2026-05</strong></td>
+                    <td>Contrato_Logistica_Rapida.pdf</td>
+                    <td>Contrato</td>
+                    <td>2026-09-16</td>
+                    <td>Q 240,000.00</td>
+                    <td><span class="badge bg-success">Sincronizado CRM</span></td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================
+             4. SECCIÓN: ANALÍTICA PREDICTIVA (RF-04)
+             ============================================== -->
+        <div id="seccion-analitica" class="d-none">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="mb-0">Analítica Predictiva</h5>
+                <small class="text-muted">Churn rate, anomalías y recomendaciones estratégicas</small>
+              </div>
+              <button class="btn btn-dark btn-sm" id="btn-calc-churn" onclick="ejecutarCalculo()">
+                ⚡ Ejecutar analítica
+              </button>
+            </div>
+            <div class="card-body">
+
+              <!-- Tabla de Clientes (Mockup Pág 6) -->
+              <div class="table-responsive mb-4">
+                <table class="table table-bordered table-hover align-middle">
+                  <thead class="table-light small">
+                    <tr>
+                      <th>CLIENTE</th>
+                      <th>TRANSACCIONES</th>
+                      <th>GASTO TOTAL</th>
+                      <th>ÚLTIMA COMPRA</th>
+                      <th>CHURN %</th>
+                      <th>RIESGO</th>
+                      <th>ACCIÓN</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Farmacéutica del Valle</strong></td>
+                      <td>3</td>
+                      <td>Q 3,100.00</td>
+                      <td>2026-01-05</td>
+                      <td><span class="text-danger fw-bold">95%</span></td>
+                      <td><span class="badge bg-danger">alto</span></td>
+                      <td><button class="btn btn-sm btn-danger py-0" onclick="abrirPrescripcion('CLI-01')">Prescribir</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Textiles Guatemala S.A.</strong></td>
+                      <td>5</td>
+                      <td>Q 6,200.00</td>
+                      <td>2026-02-15</td>
+                      <td><span class="text-danger fw-bold">85.5%</span></td>
+                      <td><span class="badge bg-danger">alto</span></td>
+                      <td><button class="btn btn-sm btn-danger py-0" onclick="abrirPrescripcion('CLI-02')">Prescribir</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Comercial San Rafael</strong></td>
+                      <td>11</td>
+                      <td>Q 12,500.00</td>
+                      <td>2026-04-10</td>
+                      <td><span class="text-warning fw-bold">78.2%</span></td>
+                      <td><span class="badge bg-warning text-dark">medio</span></td>
+                      <td><button class="btn btn-sm btn-outline-secondary py-0" onclick="abrirPrescripcion('CLI-03')">Prescribir</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Distribuidora El Faro</strong></td>
+                      <td>31</td>
+                      <td>Q 97,600.00</td>
+                      <td>2026-08-28</td>
+                      <td><span class="text-success fw-bold">15%</span></td>
+                      <td><span class="badge bg-success">bajo</span></td>
+                      <td><button class="btn btn-sm btn-outline-secondary py-0" onclick="abrirPrescripcion('CLI-04')">Detalle</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Grupo Industrial Andes</strong></td>
+                      <td>42</td>
+                      <td>Q 185,000.00</td>
+                      <td>2026-09-01</td>
+                      <td><span class="text-success fw-bold">12.5%</span></td>
+                      <td><span class="badge bg-success">bajo</span></td>
+                      <td><button class="btn btn-sm btn-outline-secondary py-0" onclick="abrirPrescripcion('CLI-05')">Detalle</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Logística Rápida GT</strong></td>
+                      <td>60</td>
+                      <td>Q 240,000.00</td>
+                      <td>2026-09-10</td>
+                      <td><span class="text-success fw-bold">5%</span></td>
+                      <td><span class="badge bg-success">bajo</span></td>
+                      <td><button class="btn btn-sm btn-outline-secondary py-0" onclick="abrirPrescripcion('CLI-06')">Detalle</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Anomalías transaccionales -->
+              <h6 class="border-top pt-3">Anomalías transaccionales</h6>
+              <div class="alert alert-danger py-2 small mb-2">
+                <strong>Inactividad extrema: Farmacéutica del Valle</strong><br>
+                El cliente lleva más de 8 meses sin emitir órdenes de compra.
+              </div>
+              <div class="alert alert-warning py-2 small mb-0">
+                <strong>Reducción de pedidos: Textiles Guatemala S.A.</strong><br>
+                Disminución del 60% en el promedio de compras en el último semestre.
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div> <!-- Fin de pantalla-sistema -->
+
+  <!-- Modal para ver el JSON de sincronización -->
+  <div class="modal" id="modal-json" tabindex="-1" style="display: none; background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title h6">Payload JSON de Sincronización ERP</h5>
+          <button type="button" class="btn-close" onclick="cerrarModales()"></button>
+        </div>
+        <div class="modal-body">
+          <pre id="json-texto" class="bg-light p-2 border rounded small mb-0"></pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="cerrarModales()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para ver prescripción del cliente -->
+  <div class="modal" id="modal-prescripcion" tabindex="-1" style="display: none; background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title h6">Prescripción Comercial del Cliente</h5>
+          <button type="button" class="btn-close" onclick="cerrarModales()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 id="p-cliente" class="mb-0 fw-bold">Cliente</h6>
+            <span class="badge bg-danger" id="p-churn">95%</span>
+          </div>
+          <div class="bg-light p-2 rounded small mb-2">
+            <strong>Motivo:</strong>
+            <p id="p-motivo" class="mb-0 text-muted">-</p>
+          </div>
+          <div class="alert alert-primary py-2 px-2 small mb-0">
+            <strong>Acción recomendada por IA:</strong>
+            <p id="p-accion" class="mb-0">-</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="cerrarModales()">Cerrar</button>
+          <button type="button" class="btn btn-success btn-sm" onclick="guardarPrescripcion()">Guardar en CRM</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Código JavaScript -->
+  <script src="js/diali-engine.js"></script>
+</body>
+</html>

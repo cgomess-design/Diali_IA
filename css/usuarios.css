@@ -1,0 +1,165 @@
+/* css/usuarios.css - Estilos específicos para el Mantenimiento de Usuarios de Renovation GYM */
+
+/* Contenedor principal de la tabla */
+.table-responsive-card {
+    background-color: #162032 !important;
+    border: 1px solid #2d3d54 !important;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Forzar que Bootstrap 5 respete el fondo oscuro en la tabla y celdas */
+.table-custom {
+    --bs-table-bg: #162032 !important;
+    --bs-table-accent-bg: transparent !important;
+    --bs-table-striped-bg: #111a28 !important;
+    --bs-table-hover-bg: #1e2d48 !important;
+    --bs-table-color: #f8fafc !important;
+    --bs-table-border-color: #273549 !important;
+    background-color: #162032 !important;
+    color: #f8fafc !important;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.table-custom thead th {
+    background-color: #0c1322 !important;
+    color: #7dd3fc !important; /* Azul cielo luminoso para encabezados */
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-bottom: 2px solid #2d3d54 !important;
+    padding: 1rem 1.1rem;
+    white-space: nowrap;
+}
+
+.table-custom tbody tr {
+    background-color: #162032 !important;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.table-custom tbody tr:nth-of-type(even) {
+    background-color: #111a28 !important;
+}
+
+.table-custom tbody tr:hover {
+    background-color: #1e2d48 !important;
+}
+
+.table-custom tbody tr td {
+    background-color: transparent !important;
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid #233044 !important;
+    vertical-align: middle;
+    color: #f8fafc !important;
+}
+
+/* Badges de Roles con alto contraste y legibilidad */
+.badge-role {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.badge-role-admin {
+    background-color: #450a0a !important;
+    color: #fca5a5 !important;
+    border: 1px solid #ef4444 !important;
+}
+
+.badge-role-gerente {
+    background-color: #3b0764 !important;
+    color: #e9d5ff !important;
+    border: 1px solid #a855f7 !important;
+}
+
+.badge-role-recepcion {
+    background-color: #082f49 !important;
+    color: #7dd3fc !important;
+    border: 1px solid #0ea5e9 !important;
+}
+
+.badge-role-coach {
+    background-color: #052e16 !important;
+    color: #86efac !important;
+    border: 1px solid #22c55e !important;
+}
+
+.badge-role-partner {
+    background-color: #451a03 !important;
+    color: #fde68a !important;
+    border: 1px solid #f59e0b !important;
+}
+
+.badge-role-cliente {
+    background-color: #0c2d48 !important;
+    color: #bae6fd !important;
+    border: 1px solid #38bdf8 !important;
+}
+
+/* Modales */
+.modal-content-custom {
+    background-color: #162032;
+    border: 1px solid #2d3d54;
+    color: #f8fafc;
+    border-radius: 1rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content-custom .modal-header {
+    border-bottom: 1px solid #2d3d54;
+    background-color: #0f172a;
+}
+
+.modal-content-custom .modal-footer {
+    border-top: 1px solid #2d3d54;
+    background-color: #0f172a;
+}
+
+.modal-content-custom .form-label {
+    color: #cbd5e1 !important;
+    font-weight: 600;
+}
+
+.modal-content-custom .form-control,
+.modal-content-custom .form-select {
+    background-color: #0d1320;
+    border: 1px solid #334155;
+    color: #ffffff;
+}
+
+.modal-content-custom .form-control:focus,
+.modal-content-custom .form-select:focus {
+    background-color: #0d1320;
+    border-color: var(--primary-accent);
+    color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 34, 0.25);
+}
+
+.modal-content-custom .form-text {
+    color: #94a3b8 !important;
+}
+
+.btn-gym {
+    background: var(--primary-gradient);
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.65rem 1.35rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.btn-gym:hover {
+    background: linear-gradient(135deg, #f4511e 0%, #ff7043 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.4);
+}

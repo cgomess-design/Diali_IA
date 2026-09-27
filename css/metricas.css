@@ -1,0 +1,47 @@
+/* css/metricas.css - Estilos para Métricas de Desempeño y Liquidación de Bonos */
+
+/* Badges de Tipo de Personal */
+.badge-equipo-coach {
+    background-color: #052e16 !important;
+    color: #86efac !important;
+    border: 1px solid #22c55e !important;
+}
+
+.badge-equipo-recepcion {
+    background-color: #082f49 !important;
+    color: #7dd3fc !important;
+    border: 1px solid #0ea5e9 !important;
+}
+
+/* Badges de Porcentaje de Bono */
+.badge-bono-100 {
+    background-color: #064e3b !important;
+    color: #a7f3d0 !important;
+    border: 1px solid #10b981 !important;
+}
+
+.badge-bono-75 {
+    background-color: #1e3a8a !important;
+    color: #bfdbfe !important;
+    border: 1px solid #3b82f6 !important;
+}
+
+.badge-bono-50 {
+    background-color: #451a03 !important;
+    color: #fde68a !important;
+    border: 1px solid #f59e0b !important;
+}
+
+.badge-bono-0 {
+    background-color: #450a0a !important;
+    color: #fca5a5 !important;
+    border: 1px solid #ef4444 !important;
+}
+
+/* Tarjeta Resumen de Bonos */
+.kpi-metric-summary {
+    background: linear-gradient(135deg, #162032 0%, #1a2538 100%);
+    border: 1px solid #2d3d54;
+    border-radius: 1rem;
+    padding: 1.25rem;
+}

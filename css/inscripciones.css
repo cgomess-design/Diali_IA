@@ -1,0 +1,50 @@
+/* css/inscripciones.css - Estilos específicos para el módulo de Inscripciones y Membresías */
+
+/* Badges de Estado de Membresía */
+.badge-status-vigente {
+    background-color: #052e16 !important;
+    color: #86efac !important;
+    border: 1px solid #22c55e !important;
+}
+
+.badge-status-vencida {
+    background-color: #451a03 !important;
+    color: #fde68a !important;
+    border: 1px solid #f59e0b !important;
+}
+
+.badge-status-cancelada {
+    background-color: #450a0a !important;
+    color: #fca5a5 !important;
+    border: 1px solid #ef4444 !important;
+}
+
+/* Badges de Plan */
+.badge-plan-basica {
+    background-color: #082f49 !important;
+    color: #7dd3fc !important;
+    border: 1px solid #0ea5e9 !important;
+}
+
+.badge-plan-haute {
+    background-color: #3b0764 !important;
+    color: #e9d5ff !important;
+    border: 1px solid #a855f7 !important;
+}
+
+/* Indicadores de Beneficios en Modal */
+.benefit-item {
+    background-color: #0d1320;
+    border: 1px solid #253347;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #cbd5e1;
+    font-size: 0.88rem;
+}
+
+.benefit-item strong {
+    color: #ffffff;
+}

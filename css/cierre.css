@@ -1,0 +1,29 @@
+/* css/cierre.css - Estilos para Cierre Diario de Jornada y Balance Ejecutivo */
+
+.report-receipt-card {
+    background: #0d1320;
+    border: 1px solid #253347;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.report-stat-box {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid #233146;
+    border-radius: 0.75rem;
+    padding: 1rem;
+}
+
+.report-stat-label {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.report-stat-val {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
